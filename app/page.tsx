@@ -201,6 +201,15 @@ function RTProductEmbed() {
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<'cover' | 'rt' | 'product'>('cover');
+  const openProductDemo = () => {
+    setActivePanel('product');
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById('rt-product')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  };
+
   return (
     <main id="top">
       <header className="nav shell">
@@ -273,7 +282,7 @@ export default function Home() {
         </article>
       </section> : activePanel === 'rt' ? <RTInsightsV2 /> : <RTProductEmbed />}
 
-      <section className="fit" id="fit"><div className="shell"><div className="sectionTitle"><span>01 / WHY RT × WHY ME</span><p>RT Holdings xây dựng một hệ sinh thái giáo dục kết nối. Em thiết kế theo cùng nguyên tắc: hiểu toàn bộ hệ thống, làm rõ hành trình, kiểm chứng rồi cải tiến.</p></div><div className="fitGrid">{fit.map((x, i) => <article key={x[0]}><span>0{i + 1}</span><h3>{x[0]}</h3><p>{x[1]}</p></article>)}</div></div></section>
+      <section className="fit" id="fit"><div className="shell"><div className="sectionTitle"><span>01 / WHY RT × WHY ME</span><p>RT Holdings xây dựng một hệ sinh thái giáo dục kết nối. Em thiết kế theo cùng nguyên tắc: hiểu toàn bộ hệ thống, làm rõ hành trình, kiểm chứng rồi cải tiến.</p></div><div className="fitGrid">{fit.map((x, i) => <article key={x[0]}><span>0{i + 1}</span><h3>{x[0]}</h3><p>{x[1]}</p><button className="fitProductLink" type="button" onClick={openProductDemo}>Trải nghiệm live demo <b>→</b></button></article>)}</div></div></section>
       <section className="experience shell" id="experience"><div className="sectionTitle"><span>02 / KINH NGHIỆM</span><p>Kinh nghiệm trong thương mại điện tử có lưu lượng lớn, công cụ doanh nghiệp và sản phẩm đa nền tảng.</p></div><div className="timeline">{experience.map((x) => <article key={x[0]}><time>{x[0]}</time><div><h3>{x[1]}</h3><strong>{x[2]}</strong><p>{x[3]}</p></div></article>)}</div></section>
       <footer id="contact"><div className="shell"><p>03 / CÙNG XÂY DỰNG TRẢI NGHIỆM GIÁO DỤC KẾT NỐI</p><a className="email" href="mailto:cpthanhhieu@gmail.com">cpthanhhieu@gmail.com <span>↗</span></a><div className="contacts"><a href="tel:+84935522285">093 552 2285</a><a href="https://www.linkedin.com/in/hieuu/" target="_blank">LinkedIn ↗</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a></div><div className="footerNav"><b>H.</b><div><a href="#top">Đầu trang ↑</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a><a href="https://hieuu.webflow.io/project/sim-dmx" target="_blank">SIM DMX ↗</a></div></div></div></footer>
     </main>
