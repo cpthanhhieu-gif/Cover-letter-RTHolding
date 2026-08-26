@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const fit = [
   ['Hệ sinh thái giáo dục × Tư duy hệ thống', 'Em cấu trúc hành trình phức tạp giữa LMS, SIS, App và CRM thành các luồng rõ ràng cho Học sinh, Giáo viên, Phụ huynh và Quản trị viên.'],
@@ -137,7 +137,76 @@ function RTInsightsV2() {
   );
 }
 
-function RTProductEmbed() {
+const productRoles = [
+  ['SIS', 'Quản trị viên / Giáo vụ', 'Quản lý hồ sơ, lớp học, điểm danh, ngoại lệ và dữ liệu toàn trường.'],
+  ['LMS', 'Giáo viên', 'Quản lý lớp, điểm danh, giao bài, chấm điểm và phản hồi học tập.'],
+  ['PORTAL', 'Phụ huynh', 'Theo dõi tình hình của con, nhận cảnh báo và trao đổi với nhà trường.'],
+  ['PORTAL', 'Học sinh', 'Xem lịch học, bài tập, kết quả, chuyên cần và phản hồi từ giáo viên.'],
+];
+
+const productWorkflows = [
+  ['Điểm danh và xử lý vắng học', 'Giáo viên ghi nhận → Giáo vụ kiểm tra → Phụ huynh xác nhận → Học sinh theo dõi'],
+  ['Điểm số và kết quả học tập', 'Giáo viên nhập điểm → Hệ thống tổng hợp → Học sinh xem kết quả → Phụ huynh theo dõi'],
+  ['Liên lạc nhà trường – phụ huynh', 'Phát hiện vấn đề → Gửi thông báo → Phụ huynh phản hồi → Nhà trường xử lý'],
+  ['Quản trị nội dung học tập', 'Tạo nội dung → Phân loại → Phân phối → Theo dõi sử dụng → Cập nhật'],
+];
+
+function ProductIntroModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="productModal" role="dialog" aria-modal="true" aria-labelledby="product-intro-title">
+      <button className="productModalBackdrop" type="button" aria-label="Đóng giới thiệu sản phẩm" onClick={onClose} />
+      <article className="productModalPanel">
+        <header className="productModalHero">
+          <div>
+            <span>RT EDUCATION ECOSYSTEM</span>
+            <h2 id="product-intro-title">Một nghiệp vụ,<br />nhiều vai trò.</h2>
+            <p>Một hệ sinh thái giáo dục được thiết kế xoay quanh sự phối hợp giữa nhà trường, giáo viên, phụ huynh và học sinh.</p>
+          </div>
+          <button className="productModalClose" type="button" aria-label="Đóng" onClick={onClose} autoFocus>×</button>
+        </header>
+
+        <div className="productModalContent">
+          <section className="productProblem">
+            <span>01 / BÀI TOÁN THIẾT KẾ</span>
+            <div>
+              <h3>Không chỉ thiết kế từng màn hình riêng lẻ.</h3>
+              <p>RT Product mô phỏng cách dữ liệu và công việc được kết nối giữa SIS, LMS và các cổng thông tin. Ví dụ, một lần học sinh vắng mặt bắt đầu từ thao tác của giáo viên, tiếp tục qua giáo vụ, phụ huynh và kết thúc ở dữ liệu chuyên cần của học sinh.</p>
+              <div className="attendanceFlow"><b>Giáo viên ghi nhận</b><i>→</i><b>Giáo vụ kiểm tra</b><i>→</i><b>Phụ huynh xác nhận</b><i>→</i><b>Học sinh theo dõi</b></div>
+            </div>
+          </section>
+
+          <section>
+            <header className="productModalSectionHead"><span>02 / BỐN NHÓM NGƯỜI DÙNG</span><p>Mỗi trải nghiệm được tổ chức theo công việc cần hoàn thành, quyền hạn và phạm vi dữ liệu.</p></header>
+            <div className="productRoleGrid">{productRoles.map((item, index) => <article key={item[1]}><span>0{index + 1} · {item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div>
+          </section>
+
+          <section>
+            <header className="productModalSectionHead"><span>03 / NGHIỆP VỤ TRỌNG TÂM</span><p>Cùng một dữ liệu được tạo, kiểm tra và sử dụng xuyên suốt nhiều sản phẩm.</p></header>
+            <div className="productWorkflowList">{productWorkflows.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><div><h3>{item[0]}</h3><p>{item[1]}</p></div></article>)}</div>
+          </section>
+
+          <section>
+            <header className="productModalSectionHead"><span>04 / NGUYÊN TẮC THIẾT KẾ</span><p>Tổ chức trải nghiệm để hệ thống rõ ràng với người dùng và khả thi khi triển khai.</p></header>
+            <div className="productPrinciples">{[
+              ['Role-based', 'Đúng thông tin và hành động cho từng vai trò.'],
+              ['Action-oriented', 'Ưu tiên việc cần xử lý và bước tiếp theo.'],
+              ['Connected data', 'Đồng bộ thay đổi giữa SIS, LMS và Portal.'],
+              ['Exception-first', 'Làm nổi bật trường hợp bất thường.'],
+              ['Scalable UI', 'Chuẩn hóa component, trạng thái và mẫu tương tác.'],
+            ].map((item) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+          </section>
+
+          <section className="productExploreGuide">
+            <div><span>05 / CÁCH TRẢI NGHIỆM</span><h3>Chuyển đổi giữa bốn vai trò để quan sát cùng một nghiệp vụ dưới những góc nhìn khác nhau.</h3><p>Dữ liệu trong prototype là dữ liệu giả lập, được sử dụng để minh họa tư duy sản phẩm, cấu trúc thông tin và luồng phối hợp giữa các vai trò.</p></div>
+            <button type="button" onClick={onClose}>Bắt đầu trải nghiệm <span>↓</span></button>
+          </section>
+        </div>
+      </article>
+    </div>
+  );
+}
+
+function RTProductEmbed({ onOpenIntro }: { onOpenIntro: () => void }) {
   return (
     <section className="productPanel shell" id="rt-product" role="tabpanel" aria-label="RT Product">
       <header className="productHeader">
@@ -145,7 +214,10 @@ function RTProductEmbed() {
           <span>RT PRODUCT / INTERACTIVE PROTOTYPE</span>
           <h2>Trải nghiệm sản phẩm ngay trong cover letter.</h2>
         </div>
-        <p>Bản thiết kế LMS/SIS được nhúng trực tiếp để người xem có thể khám phá tư duy sản phẩm mà không rời khỏi hồ sơ.</p>
+        <div className="productHeaderAside">
+          <p>Bản thiết kế LMS/SIS được nhúng trực tiếp để người xem có thể khám phá tư duy sản phẩm mà không rời khỏi hồ sơ.</p>
+          <button type="button" onClick={onOpenIntro}>Giới thiệu sản phẩm <span>↗</span></button>
+        </div>
       </header>
       <div className="productBrowser">
         <div className="productBrowserBar" aria-hidden="true">
@@ -168,6 +240,18 @@ function RTProductEmbed() {
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<'cover' | 'rt' | 'product'>('cover');
+  const [productIntroOpen, setProductIntroOpen] = useState(false);
+  useEffect(() => {
+    if (!productIntroOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => event.key === 'Escape' && setProductIntroOpen(false);
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [productIntroOpen]);
   const openProductDemo = () => {
     setActivePanel('product');
     window.requestAnimationFrame(() => {
@@ -247,11 +331,12 @@ export default function Home() {
             <p>Xin cảm ơn Anh/Chị đã dành thời gian xem xét hồ sơ.<br /><br />Trân trọng,<br /><strong>Cù Phạm Thành Hiếu</strong></p>
           </div>
         </article>
-      </section> : activePanel === 'rt' ? <RTInsightsV2 /> : <RTProductEmbed />}
+      </section> : activePanel === 'rt' ? <RTInsightsV2 /> : <RTProductEmbed onOpenIntro={() => setProductIntroOpen(true)} />}
 
       <section className="fit" id="fit"><div className="shell"><div className="sectionTitle"><span>01 / WHY RT × WHY ME</span><p>RT Holdings xây dựng một hệ sinh thái giáo dục kết nối. Em thiết kế theo cùng nguyên tắc: hiểu toàn bộ hệ thống, làm rõ hành trình, kiểm chứng rồi cải tiến.</p></div><div className="fitGrid">{fit.map((x, i) => <article key={x[0]}><span>0{i + 1}</span><h3>{x[0]}</h3><p>{x[1]}</p><button className="fitProductLink" type="button" onClick={openProductDemo}>Trải nghiệm live demo <b>→</b></button></article>)}</div></div></section>
       <section className="experience shell" id="experience"><div className="sectionTitle"><span>02 / KINH NGHIỆM</span><p>Kinh nghiệm trong thương mại điện tử có lưu lượng lớn, công cụ doanh nghiệp và sản phẩm đa nền tảng.</p></div><div className="timeline">{experience.map((x) => <article key={x[0]}><time>{x[0]}</time><div><h3>{x[1]}</h3><strong>{x[2]}</strong><p>{x[3]}</p></div></article>)}</div></section>
       <footer id="contact"><div className="shell"><p>03 / CÙNG XÂY DỰNG TRẢI NGHIỆM GIÁO DỤC KẾT NỐI</p><a className="email" href="mailto:cpthanhhieu@gmail.com">cpthanhhieu@gmail.com <span>↗</span></a><div className="contacts"><a href="tel:+84935522285">093 552 2285</a><a href="https://www.linkedin.com/in/hieuu/" target="_blank">LinkedIn ↗</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a></div><div className="footerNav"><b>H.</b><div><a href="#top">Đầu trang ↑</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a><a href="https://hieuu.webflow.io/project/sim-dmx" target="_blank">SIM DMX ↗</a></div></div></div></footer>
+      {productIntroOpen && <ProductIntroModal onClose={() => setProductIntroOpen(false)} />}
     </main>
   );
 }
