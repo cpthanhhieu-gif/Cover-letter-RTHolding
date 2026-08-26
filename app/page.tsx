@@ -110,54 +110,21 @@ function RTInsightsV2() {
         <span>RT HOLDINGS / SYSTEM VIEW</span>
         <h2>Education Ecosystem.<br/><em>Không chỉ là một trường học.</em></h2>
         <p>RT Holdings là một tập đoàn giáo dục đa thương hiệu: sở hữu nhiều điểm chạm trong hành trình học tập và dùng chung năng lực vận hành ở phía sau.</p>
-        <div className="rt2How"><small>CÁCH ĐỌC TRANG NÀY</small><div><b>01</b> Họ bán gì?</div><div><b>02</b> Hệ thống vận hành ra sao?</div><div><b>03</b> Vì sao UX trở nên phức tạp?</div></div>
       </header>
-      <div className="rt2Stats">{[['20+','Đơn vị thành viên'],['30+','Chương trình đào tạo'],['9+','Cơ sở giáo dục'],['4','Quốc gia'],['900+','Giáo viên & chuyên gia'],['500K+','Người học']].map(x=><div key={x[1]}><strong>{x[0]}</strong><span>{x[1]}</span></div>)}</div>
 
       <section className="rt2Section">
-        <header className="rt2SectionHead"><span>01 / BUSINESS TREE</span><div><h3>Education là core.<br/>Các mảng khác là adjacency.</h3><p>Doanh thu cốt lõi đến từ học phí, phí chương trình, đào tạo chuyên môn, chương trình quốc tế và dịch vụ giáo dục liên quan.</p></div></header>
-        <div className="orgTree">
-          <div className="treeRoot"><small>HOLDING COMPANY</small><strong>RT HOLDINGS</strong></div><div className="treeStem"/>
-          <div className="treePillars">
-            <div className="treePillar corePillar"><small>CORE BUSINESS</small><strong>EDUCATION</strong><p>Hệ sinh thái giáo dục đa tầng</p><div className="treeChildren">{[['K–12 / School','WASS · PennSchool · SISS'],['Post-secondary','AmCollege'],['Professional training','IABM · TDA'],['Digital / Online','Nền tảng giáo dục số'],['Foreign language','Đào tạo ngoại ngữ'],['Study abroad','International pathways']].map(x=><div key={x[0]}><strong>{x[0]}</strong><span>{x[1]}</span></div>)}</div></div>
-            <div className="treePillar"><small>ADJACENCY</small><strong>INTERNATIONAL INVESTMENT</strong><p>Cơ sở vật chất · Văn phòng · Quản lý tòa nhà · Kết nối thị trường</p></div>
-            <div className="treePillar"><small>ADJACENCY</small><strong>COMMERCE & SERVICES</strong><p>Thiết bị trường học · Tư vấn du học · Định cư · Dịch vụ liên quan</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="rt2Section">
-        <header className="rt2SectionHead"><span>02 / LEARNING LIFECYCLE</span><div><h3>Một gia đình.<br/>Nhiều năm trong ecosystem.</h3><p>Mô hình hướng đến Customer Lifetime Value: kết nối các giai đoạn thay vì chỉ tạo một giao dịch học phí.</p></div></header>
+        <header className="rt2SectionHead"><span>01 / LEARNING LIFECYCLE</span><div><h3>Một gia đình.<br/>Nhiều năm trong ecosystem.</h3><p>Mô hình hướng đến Customer Lifetime Value: kết nối các giai đoạn thay vì chỉ tạo một giao dịch học phí.</p></div></header>
         <div className="journeyRail">{['Acquire family','K–12','International program','Post-secondary','Study abroad','Professional training','Lifelong learning'].map((x,i)=><div key={x}><span>0{i+1}</span><strong>{x}</strong></div>)}</div>
         <div className="journeyExample"><small>VÍ DỤ</small><p>WASS / PennSchool <b>→</b> chương trình quốc tế <b>→</b> tư vấn university <b>→</b> study abroad <b>→</b> chương trình chuyên môn.</p></div>
       </section>
 
-      <section className="rt2Section rt2Operating">
-        <header className="rt2SectionHead"><span>03 / OPERATING STRUCTURE</span><div><h3>Multi-brand ở phía trước.<br/>Shared system ở phía sau.</h3><p>Mỗi brand có định vị riêng, nhưng cùng dựa trên một cấu trúc năng lực và dữ liệu tập trung.</p></div></header>
-        <div className="operatingStack">
-          <div className="stackLayer"><div className="stackLabel"><span>LAYER 01</span><strong>PORTFOLIO BRANDS</strong><small>Different segment · Offering · Pricing</small></div><div className="stackItems">{['WASS','PennSchool','SISS','AmCollege','IABM','TDA'].map(x=><span key={x}>{x}</span>)}</div></div>
-          <div className="stackConnector"><i/>Shared operations<i/></div>
-          <div className="stackLayer centralLayer"><div className="stackLabel"><span>LAYER 02</span><strong>CENTRAL CAPABILITIES</strong><small>Dùng chung trong toàn ecosystem</small></div><div className="stackItems">{['Admissions','Finance','HR','Academic Ops','Marketing','Infrastructure'].map(x=><span key={x}>{x}</span>)}</div></div>
-          <div className="stackConnector"><i/>Connected product & data<i/></div>
-          <div className="stackLayer digitalLayer"><div className="stackLabel"><span>LAYER 03</span><strong>DIGITAL PLATFORM</strong><small>Một nguồn dữ liệu xuyên suốt</small></div><div className="stackItems">{['LMS','SIS','Mobile App','CRM','Data'].map(x=><span key={x}>{x}</span>)}</div></div>
-          <div className="stackConnector"><i/>Experiences by role<i/></div>
-          <div className="stackLayer userLayer"><div className="stackLabel"><span>LAYER 04</span><strong>USER EXPERIENCES</strong><small>Cùng một hệ thống, khác mục tiêu</small></div><div className="stackItems">{['Student','Teacher','Parent','Admin'].map(x=><span key={x}>{x}</span>)}</div></div>
-        </div>
-        <aside className="diagramNote"><strong>Product implication</strong><p>Platform, internal system và centralized data không phải lớp hỗ trợ — chúng là hạ tầng kết nối toàn bộ business model.</p></aside>
-      </section>
-
       <section className="rt2Section">
-        <header className="rt2SectionHead"><span>04 / INTERNATIONAL VALUE</span><div><h3>Education +<br/>International Pathway.</h3><p>RT không chỉ bán “một chỗ học”, mà bán một lộ trình học thuật có khả năng dẫn đến đại học và du học.</p></div></header>
-        <div className="valuePath"><div className="valueStat"><strong>100+</strong><span>Đối tác giáo dục & học thuật</span></div><div className="valueStat"><strong>7+</strong><span>Lộ trình học tập quốc tế</span></div><div className="valueFlow">{['Parent need','School','International curriculum','Academic pathway','University / Study abroad'].map(x=><span key={x}>{x}</span>)}</div></div>
-      </section>
-
-      <section className="rt2Section">
-        <header className="rt2SectionHead compactHead"><span>05 / BUSINESS MODEL CANVAS</span><div><h3>Business model, cô đọng trong 9 khối.</h3></div></header>
+        <header className="rt2SectionHead compactHead"><span>02 / BUSINESS MODEL CANVAS</span><div><h3>Business model, cô đọng trong 9 khối.</h3></div></header>
         <div className="bmcTable">{bmc.map((x,i)=><div key={x[0]}><span>0{i+1}</span><strong>{x[0]}</strong><p>{x[1]}</p></div>)}</div>
       </section>
 
       <section className="rt2Ux">
-        <header><span>06 / WHY THIS MATTERS FOR UX</span><h3>Complexity nằm ở mối quan hệ giữa người dùng, cấu trúc học thuật và dữ liệu.</h3></header>
+        <header><span>03 / WHY THIS MATTERS FOR UX</span><h3>Complexity nằm ở mối quan hệ giữa người dùng, cấu trúc học thuật và dữ liệu.</h3></header>
         <div className="uxTree">
           <div className="uxRoot">SCHOOL ECOSYSTEM</div><div className="uxStem"/>
           <div className="uxRoles">{['Student','Teacher','Parent','Admin'].map(x=><div key={x}>{x}</div>)}</div>
