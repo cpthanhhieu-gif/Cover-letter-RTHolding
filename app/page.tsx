@@ -286,7 +286,7 @@ export default function Home() {
               <button className={activePanel==='product'?'active':''} onClick={()=>setActivePanel('product')} role="tab" aria-selected={activePanel==='product'}>RT Product <span>↓</span></button>
             </div>
           </div>
-          <div className="heroPrimaryActions"><a className="button" href="https://cover-letter-dol-english-sandy.vercel.app/Cu-Pham-Thanh-Hieu-UIUX-Designer-CV.pdf" target="_blank">Xem CV ↗</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a></div>
+          <div className="heroPrimaryActions"><a className="button" href="/Cu-Pham-Thanh-Hieu-Senior-UXUI-Designer-CV.pdf" target="_blank" rel="noopener noreferrer">Xem CV ↗</a><a href="https://hieuu.webflow.io/" target="_blank">Portfolio ↗</a></div>
         </div>
       </section>
 
