@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 const fit = [
   ['Hệ sinh thái giáo dục × Tư duy hệ thống', 'Em cấu trúc hành trình phức tạp giữa LMS, SIS, App và CRM thành các luồng rõ ràng cho Học sinh, Giáo viên, Phụ huynh và Quản trị viên.'],
   ['Đa nền tảng × Product craft', 'Em thiết kế sản phẩm Web và Mobile responsive theo quy trình end-to-end, từ xác định vấn đề, kiến trúc thông tin đến UI hoàn thiện và prototype.'],
@@ -275,6 +279,3 @@ export default function Home() {
     </main>
   );
 }
-'use client';
-
-import { useState } from 'react';
